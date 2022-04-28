@@ -3,6 +3,8 @@ import Container from "./components/layout/Container";
 import Sidebar from "./components/layout/Sidebar";
 import About from "./pages/About";
 import Home from "./pages/Home";
+import ProductDetails from "./pages/ProductDetails";
+import Products from "./pages/Products";
 
 export default function App() {
   return (
@@ -12,6 +14,8 @@ export default function App() {
         <Route path="/" element={<Container />}>
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
+          <Route path="products" element={<Products />} />
+          <Route path="products/:id" element={<ProductDetails />} />
           <Route
             path="*"
             element={<p>There's nothing here!</p>}
