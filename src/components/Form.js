@@ -92,7 +92,7 @@ const Form = () => {
 
   return (
     <div>
-      <div className="flex w-64 flex-col fixed inset-y-0 right-0">
+      <div className="flex w-48 flex-col fixed inset-y-0 right-0">
           <div className="flex-1 flex flex-col min-h-0 border-l border-gray-200 bg-white">
             <div className="bg-auto bg-blue-800 flex-1 flex flex-col p-4 overflow-auto">
               <div className="text-white text-xs font-bold">
