@@ -92,6 +92,17 @@ const Form = () => {
 
   return (
     <div>
+      <div className="flex w-64 flex-col fixed inset-y-0 right-0">
+          <div className="flex-1 flex flex-col min-h-0 border-l border-gray-200 bg-white">
+            <div className="bg-auto bg-blue-800 flex-1 flex flex-col p-4 overflow-auto">
+              <div className="text-white text-xs font-bold">
+                <pre>
+                  <code>{JSON.stringify(form, undefined, 1)}</code>
+                </pre>
+              </div>
+            </div>
+          </div>
+      </div>
       <h3 className="text-xl leading-6 font-medium text-gray-900 text-center mb-1">
         Form
       </h3>
@@ -199,11 +210,6 @@ const Form = () => {
           </div>
         </div>
       </form>
-      <div className="my-4 bg-blue-800 text-white font-bold text-sm p-4 rounded-md shadow-md">
-        <pre>
-          <code>{JSON.stringify(form, undefined, 2)}</code>
-        </pre>
-      </div>
     </div>
   );
 };
