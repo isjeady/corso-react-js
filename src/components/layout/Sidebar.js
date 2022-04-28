@@ -1,10 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const navigation = [
-    { name: 'Home', href: '#'},
-    { name: 'Home1', href: '#'},
-    { name: 'Home2', href: '#'},
+    { name: 'Home', href: '/'},
+    { name: 'About', href: '/about'},
+    { name: 'Not Ext', href: '/no-exist'},
   ]
   
 function classNames(...classes) {
@@ -28,23 +28,22 @@ const Sidebar = () => {
                 <Link className="text-blue-300" to="/">Home</Link>
                 <Link to="/about">About</Link>
                 {navigation.map((item) => (
-                  <a
+                   <NavLink
+                    /* className="text-xs font-bold bg-green-100 p-2 hover:bg-green-500 cursor-pointer" */
+                    style={({ isActive }) => {
+                      return {
+                        display: "block",
+                        color: isActive ? "green" : "",
+                      };
+                    }}
+                    className={({ isActive }) => {
+                      return "text-xs font-bold bg-green-100 p-2 hover:bg-green-200 cursor-pointer rounded";
+                    }}
+                    to={`${item.href}`}
                     key={item.name}
-                    href={item.href}
-                    className={classNames(
-                      item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                      'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
-                    )}
                   >
-                    <div
-                      className={classNames(
-                        item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500',
-                        'mr-3 flex-shrink-0 h-6 w-6'
-                      )}
-                      aria-hidden="true"
-                    />
                     {item.name}
-                  </a>
+                  </NavLink>
                   ))}
               </nav>
             </div>

@@ -8,6 +8,14 @@ export default function App() {
        <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
+        <Route
+          path="*"
+          element={
+            <main style={{ padding: "1rem" }}>
+              <p>There's nothing here!</p>
+            </main>
+          }
+        />
       </Routes>
     </div>
   );
