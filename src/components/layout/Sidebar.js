@@ -25,8 +25,6 @@ const Sidebar = () => {
                 <p>Logo</p>
               </div>
               <nav className="mt-5 flex-1 px-2 bg-white space-y-1">
-                <Link className="text-blue-300" to="/">Home</Link>
-                <Link to="/about">About</Link>
                 {navigation.map((item) => (
                    <NavLink
                     /* className="text-xs font-bold bg-green-100 p-2 hover:bg-green-500 cursor-pointer" */

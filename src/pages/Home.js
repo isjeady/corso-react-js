@@ -6,9 +6,7 @@ import Form from "../components/Form";
 const Home = () => {
   return (
     <div>
-       <Container>
-          <Form />
-       </Container>
+      <Form />
     </div>
   )
 }

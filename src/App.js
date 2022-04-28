@@ -8,17 +8,15 @@ export default function App() {
   return (
     <div>
       <Sidebar />
-       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route
-          path="*"
-          element={
-            <Container>
-              <p>There's nothing here!</p>
-            </Container>
-          }
-        />
+      <Routes>
+        <Route path="/" element={<Container />}>
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route
+            path="*"
+            element={<p>There's nothing here!</p>}
+          />
+        </Route>
       </Routes>
     </div>
   );
