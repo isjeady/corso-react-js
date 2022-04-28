@@ -2,8 +2,8 @@ import React from 'react'
 
 const navigation = [
     { name: 'Home', href: '#'},
-    { name: 'Home', href: '#'},
-    { name: 'Home', href: '#'},
+    { name: 'Home1', href: '#'},
+    { name: 'Home2', href: '#'},
   ]
   
 function classNames(...classes) {

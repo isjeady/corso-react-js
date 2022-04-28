@@ -1,14 +1,11 @@
-import Container from "./components/layout/Container";
-import Form from "./components/Form";
-import Sidebar from "./components/layout/Sidebar";
+import About from "./pages/About";
+import Home from "./pages/Home";
 
 export default function App() {
   return (
     <div>
-       <Sidebar />
-       <Container>
-          <Form />
-       </Container>
+       <Home />
+       <About />
     </div>
   );
 }
