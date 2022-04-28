@@ -28,9 +28,10 @@ export const UiGroupCheckbox = ({ values, onChange, title }) => {
       <fieldset>
         <legend className="text-base font-medium text-gray-900">{title}</legend>
         <div className="mt-4 space-y-4">
-          {values.map((checkbox) => {
+          {values.map((checkbox,idx) => {
             return (
               <UiCheckbox
+                key={idx}
                 id={checkbox.id}
                 label={checkbox.label}
                 description={checkbox.description}
