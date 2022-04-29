@@ -7,6 +7,7 @@ import { UiHeader } from "./ui/UiHeader";
 import { UiInput } from "./ui/UiInput";
 import { UiSelect } from "./ui/UiSelect";
 import { UiTextArea } from "./ui/UiTextArea";
+import { useSearchParams } from "react-router-dom";
 
 const selectValues = [
   { id: 1, name: "Italia" },
@@ -72,7 +73,10 @@ const Form = () => {
     files: false
   });
 
+  let [searchParams, setSearchParams] = useSearchParams();
+
   const [form, setForm] = useState({
+    search: searchParams.get("search"),
     firstName: "",
     lastName: "",
     description: "",
@@ -89,6 +93,12 @@ const Form = () => {
       lastName: form.lastName === ""
     });
   };
+
+  const handleSearch = () => {
+    setSearchParams({ search : form.search });
+  };
+
+  
 
   return (
     <div>
@@ -107,9 +117,26 @@ const Form = () => {
         Form
       </h3>
       <form className="space-y-6">
+        <UiHeader
+          title="Cerca"
+          subtitle="Cerca..."
+        />
+        <div className="mt-4 py-4 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+          <UiInput
+            id="cerca"
+            label="Cerca"
+            value={form.search}
+            onChange={(event) => {
+              const val = event.target.value;
+              setForm({ ...form, search: val });
+            }}
+          />
+        </div>
+
         <div className="pt-5">
-          <div className="flex justify-end">
+          <div className="flex justify-end gap-4">
             <UiButton title="Valid Form" onClick={handleValidForm} solid />
+            <UiButton title="Cerca" onClick={handleSearch} />
           </div>
         </div>
         <UiHeader
@@ -117,6 +144,16 @@ const Form = () => {
           subtitle="Queste informazioni verranno visualizzate pubblicamente, quindi fai attenzione a ciò che condividi."
         />
         <div className="mt-4 py-4 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+          <UiInput
+            id="firstname"
+            label="Firstname"
+            value={form.firstName}
+            onChange={(event) => {
+              const val = event.target.value;
+              setForm({ ...form, firstName: val });
+            }}
+            error={formError.firstName}
+          />
           <UiInput
             id="firstname"
             label="Firstname"
