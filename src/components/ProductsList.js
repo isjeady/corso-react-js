@@ -8,7 +8,7 @@ const products = [
 ];
 
 
-const Products = () => {
+const ProductsList = () => {
   return (
     <div>
         <ul className="list-disc">
@@ -22,4 +22,4 @@ const Products = () => {
   )
 }
 
-export default Products
+export default ProductsList

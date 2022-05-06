@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Private from "./pages/Private";
 import ProductDetails from "./pages/ProductDetails";
-import Products from "./pages/Products";
+import ProductsPage from "./pages/ProductsPage";
 
 export default function App() {
   return (
@@ -18,7 +18,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/private" element={<Private />} />
           <Route path="/about" element={<About />} />
-          <Route path="/products" element={<Products />} />
+          <Route path="/products" element={<ProductsPage />} />
           <Route path="/products/:id" element={<ProductDetails />} />
           <Route
             path="*"
