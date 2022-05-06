@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import ProductItem from './ProductItem';
-
+/* 
 const products = [
     {id : 1, name : "Prodotto Uno", slug : "prodotto-uno"},
     {id : 2, name : "Prodotto Due", slug : "prodotto-due"},
@@ -11,10 +11,24 @@ const products = [
     {id : 6, name : "Prodotto Tre", slug : "prodotto-tre"},
     {id : 7, name : "Prodotto Tre", slug : "prodotto-tre"},
     {id : 8, name : "Prodotto Tre", slug : "prodotto-tre"},
-];
+]; */
 
 
 const ProductsList = () => {
+
+  const [products,setProducts] = useState([]);
+
+  const fetchService = () => {
+    fetch('http://localhost:3004/products')
+      .then(res=>res.json())
+      .then(data=>setProducts(data))
+  }
+
+  useEffect(() => {
+    fetchService();
+  },[])
+
+
   return (
     <div>
          <ul role="list" className="grid grid-cols-4 gap-6">
