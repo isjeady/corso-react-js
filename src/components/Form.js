@@ -76,7 +76,7 @@ const Form = () => {
   let [searchParams, setSearchParams] = useSearchParams();
 
   const [form, setForm] = useState({
-    search: searchParams.get("search"),
+    search: searchParams.get("search") ?? "",
     firstName: "",
     lastName: "",
     description: "",
@@ -144,16 +144,6 @@ const Form = () => {
           subtitle="Queste informazioni verranno visualizzate pubblicamente, quindi fai attenzione a ciò che condividi."
         />
         <div className="mt-4 py-4 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
-          <UiInput
-            id="firstname"
-            label="Firstname"
-            value={form.firstName}
-            onChange={(event) => {
-              const val = event.target.value;
-              setForm({ ...form, firstName: val });
-            }}
-            error={formError.firstName}
-          />
           <UiInput
             id="firstname"
             label="Firstname"
