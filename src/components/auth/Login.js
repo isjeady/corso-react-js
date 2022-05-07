@@ -18,7 +18,7 @@ const Login = () => {
     const [error,setError] = useState(null)
 
     const saveData = (data) => {
-        localStorage.setItem("auth",JSON.stringify(data));
+        localStorage.setItem("auth",data);
     }
 
     const redirect = () => {
@@ -40,9 +40,10 @@ const Login = () => {
             }
         ).then((res)=> {
             const data = res.data;
+            const accessToken = data.accessToken;
             //setResponse(data)
             //REDIRECT TO PRIVATE ROUTE
-            saveData(data);
+            saveData(accessToken);
             redirect();
         }).catch((err) => {
             const message = err.response.data;

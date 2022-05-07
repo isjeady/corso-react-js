@@ -3,5 +3,24 @@ content-type: application/json
 
 {
   "email": "olivier@mail.com",
+  "password" : "bestPassw0rd",
+  "firstname": "Olivier",
+  "lastname": "Monge",
+  "age": 32
+}
+
+###
+
+POST http://localhost:3004/login
+content-type: application/json
+
+{
+  "email": "olivier@mail.com",
   "password" : "bestPassw0rd"
 }
+
+###
+GET http://localhost:3004/660/users/1
+content-type: application/json
+authorization : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9saXZpZXJAbWFpbC5jb20iLCJpYXQiOjE2NTE5MTY2NjcsImV4cCI6MTY1MTkyMDI2Nywic3ViIjoiMSJ9.mW_MmA5sYmv1UK-X6ZyEUyHwRIzDBMcseVUlzFGvEg4
+

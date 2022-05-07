@@ -2,7 +2,10 @@
   "users": [
     {
       "email": "olivier@mail.com",
-      "password": "$2a$10$eSkqRz2Y/Q8umcbl.nKT8uObaFBJCudTzLCBqekcQ3o5cIimAmy.G",
+      "password": "$2a$10$eoIkYcfqaS5d0zP3YK2u2.JLYEyOK3Thd48udw48aWKnEPBdKNgkS",
+      "firstname": "Olivier",
+      "lastname": "Monge",
+      "age": 32,
       "id": 1
     }
   ],
