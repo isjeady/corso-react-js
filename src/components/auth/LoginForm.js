@@ -9,7 +9,7 @@ const LoginForm = ({ onLogin,message }) => {
 
     const [form, setForm] = useState({
         email: "olivier@mail.com",
-        password: "bestPassw0rd_ERR",
+        password: "bestPassw0rd",
     });
 
     const [formError, setFormError] = useState({

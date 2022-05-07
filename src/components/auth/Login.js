@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { postLoginService } from '../../services/api/auth.service';
+import { LOCAL_STORAGE_TOKEN_PROPS } from '../../services/http';
 import LoginForm from './LoginForm';
 
 const Login = () => {
@@ -8,7 +10,7 @@ const Login = () => {
     // const [response,setResponse] = useState(null)
 
     useEffect(() => {
-        const auth = localStorage.getItem('auth');
+        const auth = localStorage.getItem(LOCAL_STORAGE_TOKEN_PROPS);
 
         if(auth){
             redirect()
@@ -18,7 +20,7 @@ const Login = () => {
     const [error,setError] = useState(null)
 
     const saveData = (data) => {
-        localStorage.setItem("auth",data);
+        localStorage.setItem(LOCAL_STORAGE_TOKEN_PROPS,data);
     }
 
     const redirect = () => {
@@ -29,24 +31,16 @@ const Login = () => {
         setError(null)
         //setResponse(null)
 
-        axios.post(
-            '/login',
-            formToSend,
-            {
-              baseURL: 'http://localhost:3004', 
-              headers:{
-                Accept: 'application/json', 
-              }
-            }
-        ).then((res)=> {
-            const data = res.data;
+        postLoginService(
+            formToSend
+        ).then((data)=> {
+            console.log(data)
             const accessToken = data.accessToken;
-            //setResponse(data)
-            //REDIRECT TO PRIVATE ROUTE
             saveData(accessToken);
             redirect();
-        }).catch((err) => {
-            const message = err.response.data;
+        }).catch((response) => {
+            console.log(response)
+            const message = response.data;
             setError(message)
         })
     }
