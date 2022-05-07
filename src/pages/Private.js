@@ -8,7 +8,7 @@ const Private = () => {
 
   const handleLogout = () => {
     if(confirm("Vuoi uscire??")){
-        localStorage.removeItem("user");
+        localStorage.removeItem("auth");
         navigate("/login")
     }
   }

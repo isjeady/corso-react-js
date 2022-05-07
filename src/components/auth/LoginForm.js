@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { UiButton } from '../components/ui/UiButton';
-import { UiHeader } from '../components/ui/UiHeader';
-import { UiInput } from '../components/ui/UiInput';
+import { UiButton } from '../../components/ui/UiButton';
+import { UiHeader } from '../../components/ui/UiHeader';
+import { UiInput } from '../../components/ui/UiInput';
 
-const Login = () => {
+const LoginForm = ({ onLogin,message }) => {
     let navigate = useNavigate();
 
     const [form, setForm] = useState({
-        email: "",
-        password: "",
+        email: "olivier@mail.com",
+        password: "bestPassw0rd_ERR",
     });
 
     const [formError, setFormError] = useState({
@@ -43,15 +43,15 @@ const Login = () => {
 
     const handleLogin = () => {
         if(handleValidForm()){
+            onLogin(form)
             // VERIFICA DEI DATI CON IL SERVER
-            localStorage.setItem("user",JSON.stringify(form));
-            navigate("/private")
+            /* localStorage.setItem("user",JSON.stringify(form));
+            navigate("/private") */
         }
     }
 
-    return (
-        <div className="max-w-xl m-auto space-y-6 border border-gray-300 p-4 rounded-xl shadow-lg">
-        <form >
+    return <div className="max-w-xl m-auto space-y-6 border border-gray-300 p-4 rounded-xl shadow-lg">
+        <form>
             <UiHeader
             title="Login"
             />
@@ -77,6 +77,10 @@ const Login = () => {
                 error={formError.password}
             />
             </div>
+        
+        {message && <div className="bg-red-300 text-gray-800 p-2 rounded mt-2 mb-4 text-xs font-bold shadow-md">
+            {message}
+        </div>}
 
           <div className="flex justify-end">
             <UiButton
@@ -87,7 +91,6 @@ const Login = () => {
           </div>
       </form>
     </div>
-    )
 }
 
-export default Login
+export default LoginForm
