@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import ProductItem from './ProductItem';
@@ -19,8 +20,25 @@ const ProductsList = () => {
   const [products,setProducts] = useState([]);
 
   const fetchService = () => {
+    /* 
     fetch('http://localhost:3004/products')
       .then(res=>res.json())
+      .then(data=>setProducts(data)) 
+    */
+    axios.get(
+      '/products',
+      {
+        baseURL: 'http://localhost:3004', 
+        params : {
+          parametro1 : "mioparametro"
+        },
+        headers:{
+          // Authorization: 'Bearer 1234TOKEN',
+          Accept: 'application/json', 
+          'Accept-Language': 'esp'
+        }
+      }
+    ).then(res=>res.data)
       .then(data=>setProducts(data))
   }
 
