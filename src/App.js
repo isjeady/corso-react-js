@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router";
 import Container from "./components/layout/Container";
 import Sidebar from "./components/layout/Sidebar";
+import TopBar from "./components/layout/TopBar";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage";
@@ -11,6 +12,7 @@ import ProductsPage from "./pages/ProductsPage";
 export default function App() {
   return (
     <div>
+      <TopBar />
       <Sidebar />
       <Routes>
         <Route path="/" element={<Container />}>
