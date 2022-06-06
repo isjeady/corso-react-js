@@ -1,6 +1,7 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../../contexts/user.context';
 import { postLoginService } from '../../services/api/auth.service';
 import { LOCAL_STORAGE_TOKEN_PROPS } from '../../services/http';
 import LoginForm from './LoginForm';
@@ -8,6 +9,7 @@ import LoginForm from './LoginForm';
 const Login = () => {
     const navigate = useNavigate();
     // const [response,setResponse] = useState(null)
+    const {setCurrentUser} = useContext(UserContext)
 
     useEffect(() => {
         const auth = localStorage.getItem(LOCAL_STORAGE_TOKEN_PROPS);
@@ -36,6 +38,8 @@ const Login = () => {
         ).then((data)=> {
             console.log(data)
             const accessToken = data.accessToken;
+            const user = data.user;
+            setCurrentUser(user)
             saveData(accessToken);
             redirect();
         }).catch((response) => {
