@@ -1,12 +1,16 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../../contexts/user.context';
 import { postLoginService } from '../../services/api/auth.service';
 import { LOCAL_STORAGE_TOKEN_PROPS } from '../../services/http';
 import LoginForm from './LoginForm';
 
 const Login = () => {
     const navigate = useNavigate();
+
+    const {setCurrentUser} = useContext(UserContext);
+
     // const [response,setResponse] = useState(null)
 
     useEffect(() => {
@@ -36,6 +40,10 @@ const Login = () => {
         ).then((data)=> {
             console.log(data)
             const accessToken = data.accessToken;
+            
+            const user = data.user;
+            setCurrentUser(user);
+
             saveData(accessToken);
             redirect();
         }).catch((response) => {

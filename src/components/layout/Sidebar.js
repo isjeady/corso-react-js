@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { UserContext } from '../../contexts/user.context'
 
 const navigation = [
     { name: 'Home', href: '/'},
     { name: 'Products', href: '/products'},
     { name: 'About', href: '/about'},
+    { name: 'Notes', href: '/notes'},
     { name: 'Login', href: '/login'},
     { name: 'Private', href: '/private'},
     { name: 'Not Ext', href: '/no-exist'},
@@ -15,6 +17,10 @@ function classNames(...classes) {
 }
 
 const Sidebar = () => {
+
+  const {currentUser} = useContext(UserContext);
+
+
   return (
     <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
           <div className="flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white">
@@ -48,7 +54,14 @@ const Sidebar = () => {
                   ))}
               </nav>
             </div>
-            <div className="flex-shrink-0 flex border-t border-gray-200 p-4">
+
+            {/* <pre className='text-xs p-2 bg-blue-900 text-white'>
+              <code>
+                {JSON.stringify(currentUser,undefined,2)}
+              </code>
+            </pre> */}
+            
+            {currentUser && <div className="flex-shrink-0 flex border-t border-gray-200 p-4">
               <a href="#" className="flex-shrink-0 w-full group block">
                 <div className="flex items-center">
                   <div>
@@ -59,12 +72,12 @@ const Sidebar = () => {
                     />
                   </div>
                   <div className="ml-3">
-                    <p className="text-sm font-medium text-gray-700 group-hover:text-gray-900">User</p>
-                    <p className="text-xs font-medium text-gray-500 group-hover:text-gray-700">View profile</p>
+                    <p className="text-sm font-medium text-gray-700 group-hover:text-gray-900">{currentUser.firstname} {currentUser.lastname}</p>
+                    <p className="text-xs font-medium text-gray-500 group-hover:text-gray-700">{currentUser.email}</p>
                   </div>
                 </div>
               </a>
-            </div>
+            </div>}
           </div>
         </div>
   )

@@ -84,7 +84,7 @@ const LoginForm = ({ onLogin,message }) => {
 
           <div className="flex justify-end">
             <UiButton
-              title="Save"
+              title="Login"
               onClick={handleLogin}
               solid
             />

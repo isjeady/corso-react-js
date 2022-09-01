@@ -1,9 +1,11 @@
 import { Route, Routes } from "react-router";
 import Container from "./components/layout/Container";
 import Sidebar from "./components/layout/Sidebar";
+import Topbar from "./components/layout/Topbar";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage";
+import Notes from "./pages/Notes";
 import Private from "./pages/Private";
 import ProductDetails from "./pages/ProductDetails";
 import ProductsPage from "./pages/ProductsPage";
@@ -11,6 +13,7 @@ import ProductsPage from "./pages/ProductsPage";
 export default function App() {
   return (
     <div>
+      <Topbar />
       <Sidebar />
       <Routes>
         <Route path="/" element={<Container />}>
@@ -18,6 +21,7 @@ export default function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/private" element={<Private />} />
           <Route path="/about" element={<About />} />
+          <Route path="/notes" element={<Notes />} />
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/products/:id" element={<ProductDetails />} />
           <Route
