@@ -32,6 +32,10 @@ export const userReducer = (state, action) => {
                 ...state,
                 notes : newNotes
             }
+        case USER_ACTIONS_TYPES.NO_CHANGE: 
+            return {
+                ...state,
+            }
         default:
             throw new Error(`Error Type: ${type} in userReducer`)
     }

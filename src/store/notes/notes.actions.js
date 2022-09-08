@@ -16,3 +16,4 @@ export const removeNoteActionRedux = (id) => ({
 
 export const addNoteActionRedux = (data) => createAction(NOTES_ACTIONS_TYPES.ADD_NOTE,data);
 export const removeNoteActionRedux = (id) => createAction(NOTES_ACTIONS_TYPES.REMOVE_NOTE,id);
+export const noChangeActionRedux = (data) => createAction(NOTES_ACTIONS_TYPES.NO_CHANGE_STATE,data);

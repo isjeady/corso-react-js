@@ -28,12 +28,19 @@ export const UserProvider = ({children}) => {
             payload : id
         })
     }
+    const noChangeAction = (id) => {
+        dispatch({
+            type : USER_ACTIONS_TYPES.NO_CHANGE,
+            payload : id
+        })
+    }
 
     const value = {
         state,
         setCurrentUser : setCurrentUserAction,
         addNoteAction,
-        removeNoteAction
+        removeNoteAction,
+        noChangeAction
     };
 
     return <UserContext.Provider value={value}>

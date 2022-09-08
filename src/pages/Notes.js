@@ -19,6 +19,7 @@ const Notes = () => {
        
         <pre className='text-xs p-2 bg-blue-900 text-white mt-10'>
                     <code>
+                    {parseFloat(Math.random().toFixed(2))}
                       {JSON.stringify(state,undefined,2)}
                     </code>
                   </pre>

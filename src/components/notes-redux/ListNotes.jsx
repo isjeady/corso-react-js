@@ -1,14 +1,17 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { noChangeActionRedux } from '../../store/notes/notes.actions';
 import { selectorNotesList } from '../../store/notes/notes.selector';
 
 const ListNotes = () => {
+  const dispatch = useDispatch();
   const list = useSelector(selectorNotesList)
 
   const handleRemove = (note) => {
-    if(confirm("RIMUOVI???")){
+    //if(confirm("RIMUOVI???")){
       // removeNoteAction(note.id)
-    }
+      dispatch(noChangeActionRedux(note.id));
+    //}
   }
 
   return (

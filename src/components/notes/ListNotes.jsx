@@ -2,12 +2,13 @@ import React, { useContext } from 'react'
 import { UserContext } from '../../contexts/user.context';
 
 const ListNotes = () => {
-  const {state,removeNoteAction} = useContext(UserContext);
+  const {state,removeNoteAction,noChangeAction} = useContext(UserContext);
   const { notes} = state;
 
   const handleRemove = (note) => {
     if(confirm("RIMUOVI???")){
-      removeNoteAction(note.id)
+      //removeNoteAction(note.id)
+      noChangeAction(note.id);
     }
   }
 
