@@ -1,13 +1,13 @@
-import React, { useContext } from 'react'
-import { UserContext } from '../../contexts/user.context';
+import React from 'react'
+import { useSelector } from 'react-redux';
+import { selectorNotesList } from '../../store/notes/notes.selector';
 
 const ListNotes = () => {
-  const {state,removeNoteAction} = useContext(UserContext);
-  const { notes} = state;
+  const list = useSelector(selectorNotesList)
 
   const handleRemove = (note) => {
     if(confirm("RIMUOVI???")){
-      removeNoteAction(note.id)
+      // removeNoteAction(note.id)
     }
   }
 
@@ -15,7 +15,7 @@ const ListNotes = () => {
     <div>
         ListNotes Redux
         <ul className='text-sm list-disc flex flex-col'>
-           {notes && notes.map(note => {
+           {list && list.map(note => {
                 return <li className='inline-flex'>{note.title} | 
                 <div className='font-bold cursor-pointer' onClick={() => {handleRemove(note)}}>X</div>
                 </li>

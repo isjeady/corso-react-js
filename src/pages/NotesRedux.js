@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import RequireAuth from '../components/layout/RequireAuth';
 import AddNote from '../components/notes-redux/AddNote';
@@ -7,9 +8,11 @@ import { UiButton } from '../components/ui/UiButton';
 import { UiHeader } from '../components/ui/UiHeader';
 import { UiInput } from '../components/ui/UiInput';
 import { UserContext } from '../contexts/user.context';
+import { selectorNotesList } from '../store/notes/notes.selector';
 
 const NotesRedux = () => {
   /* const state = useContext(UserContext); */
+  const state = useSelector(selectorNotesList)
 
   return (
     <div>
@@ -18,11 +21,11 @@ const NotesRedux = () => {
         <AddNote />
         <ListNotes />
        
-        {/* <pre className='text-xs p-2 bg-blue-900 text-white mt-10'>
-                    <code>
-                      {JSON.stringify(state,undefined,2)}
-                    </code>
-                  </pre> */}
+        <pre className='text-xs p-2 bg-blue-900 text-white mt-10'>
+          <code>
+            {JSON.stringify(state,undefined,2)}
+          </code>
+        </pre>
       </div>
     </div>
   )
