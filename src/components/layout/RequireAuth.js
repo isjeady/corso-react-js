@@ -39,7 +39,7 @@ const RequireAuth = ({ children }) => {
 
     useEffect(() => {
         verifyToken()
-    },[children])
+    },[])
     
 
     return <div>{authenticate && children}</div>
