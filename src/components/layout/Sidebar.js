@@ -7,6 +7,7 @@ const navigation = [
     { name: 'Products', href: '/products'},
     { name: 'About', href: '/about'},
     { name: 'Notes', href: '/notes'},
+    { name: 'Notes Redux', href: '/notes-redux'},
     { name: 'Login', href: '/login'},
     { name: 'Private', href: '/private'},
     { name: 'Not Ext', href: '/no-exist'},

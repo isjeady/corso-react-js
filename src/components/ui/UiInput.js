@@ -1,6 +1,6 @@
 export const UiInput = ({ id, label, value, onChange, error }) => {
   let classes =
-    "w-full rounded-md h-10 p-2 focus:ring-indigo-500 focus:border-indigo-500";
+    "w-full text-sm rounded-md h-10 p-2 focus:ring-indigo-500 focus:border-indigo-500";
 
   let errorColor = "border-2 border-red-500 ";
   let defultColor = "border border-gray-300 ";
