@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react'
+import { useDispatch } from 'react-redux';
 import { UserContext } from '../../contexts/user.context';
+import { addNoteActionRedux } from '../../store/notes/notes.actions';
 import { UiButton } from '../ui/UiButton';
 import { UiHeader } from '../ui/UiHeader';
 import { UiInput } from '../ui/UiInput';
 
 const AddNote = () => {
-  const state = useContext(UserContext);
-  const {addNoteAction} = useContext(UserContext);
+  const dispatch = useDispatch();
 
   const [form, setForm] = useState({
     title: "Mio titolo...",
@@ -14,7 +15,7 @@ const AddNote = () => {
   });
 
   const handleAdd = () => {
-    addNoteAction(form)
+    dispatch(addNoteActionRedux(form))
   }
 
   return (

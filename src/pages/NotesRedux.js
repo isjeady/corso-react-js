@@ -9,7 +9,7 @@ import { UiInput } from '../components/ui/UiInput';
 import { UserContext } from '../contexts/user.context';
 
 const NotesRedux = () => {
-  const state = useContext(UserContext);
+  /* const state = useContext(UserContext); */
 
   return (
     <div>
@@ -18,11 +18,11 @@ const NotesRedux = () => {
         <AddNote />
         <ListNotes />
        
-        <pre className='text-xs p-2 bg-blue-900 text-white mt-10'>
+        {/* <pre className='text-xs p-2 bg-blue-900 text-white mt-10'>
                     <code>
                       {JSON.stringify(state,undefined,2)}
                     </code>
-                  </pre>
+                  </pre> */}
       </div>
     </div>
   )
