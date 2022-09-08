@@ -8,8 +8,8 @@ export const notesReducer = (state = NOTES_INITIAL_STATE, action) => {
         case NOTES_ACTIONS_TYPES.ADD_NOTE:
             return {
                 ...state,
-                notes : [
-                    ...state.notes,
+                list : [
+                    ...state.list,
                     {
                         id : new Date().valueOf(),
                         ...payload
@@ -18,10 +18,10 @@ export const notesReducer = (state = NOTES_INITIAL_STATE, action) => {
             }
         case NOTES_ACTIONS_TYPES.REMOVE_NOTE: 
             const id = payload;
-            const newNotes = state.notes.filter((note) => note.id != id);
+            const newNotes = state.list.filter((note) => note.id != id);
             return {
                 ...state,
-                notes : newNotes
+                list : newNotes
             }
         default:
             return state
