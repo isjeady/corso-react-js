@@ -1,5 +1,5 @@
 import { NOTES_INITIAL_STATE } from "./notes.state";
-import { NOTES_ACTIONS_TYPES } from "./notes.type";
+import { NOTES_ACTIONS_TYPES } from "./notes.types";
 
 export const notesReducer = (state = NOTES_INITIAL_STATE, action) => {
     const { type, payload } = action;
