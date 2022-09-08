@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { useSelector } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import RequireAuth from '../components/layout/RequireAuth';
 import AddNote from '../components/notes-redux/AddNote';
@@ -10,9 +10,9 @@ import { UiInput } from '../components/ui/UiInput';
 import { UserContext } from '../contexts/user.context';
 import { selectorNotesList } from '../store/notes/notes.selector';
 
-const NotesRedux = () => {
+const NotesRedux = ({ list }) => {
   /* const state = useContext(UserContext); */
-  const state = useSelector(selectorNotesList)
+  
 
   return (
     <div>
@@ -23,7 +23,8 @@ const NotesRedux = () => {
        
         <pre className='text-xs p-2 bg-blue-900 text-white mt-10'>
           <code>
-            {JSON.stringify(state,undefined,2)}
+          {parseFloat(Math.random().toFixed(2))}
+            {JSON.stringify(list,undefined,2)}
           </code>
         </pre>
       </div>
@@ -31,4 +32,10 @@ const NotesRedux = () => {
   )
 }
 
-export default NotesRedux
+const mapStateToProps = (state) => {
+  return { 
+    list: state.notes.list 
+  };
+};
+
+export default connect(mapStateToProps)(NotesRedux);
